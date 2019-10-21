@@ -3,9 +3,9 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
-import { GithubImg } from '../components/GithubImg'
-import { LinkedInImg } from '../components/LinkedInImg'
-import { TwitterImg } from '../components/TwitterImg'
+import GithubSVG from '../images/github.inline.svg'
+import LinkedInSVG from '../images/linkedin.inline.svg'
+import TwitterSVG from '../images/twitter.inline.svg'
 import { AlgopitImg } from '../components/AlgopitImg'
 import { MugshotImg } from '../components/MugshotImg'
 import SEO from '../components/seo'
@@ -28,7 +28,7 @@ const StyledLink = styled(Link)`
     transition: all 0.35s ease-in-out;
   }
   :hover::after {
-    transform: translateY(0);
+    transform: translateY(50%);
     opacity: 1;
   }
 `
@@ -107,17 +107,17 @@ const Hero = () => (
     <ul>
       <li>
         <NormalLink href="https://www.github.com/evalir">
-          <GithubImg />
+          <GithubSVG />
         </NormalLink>
       </li>
       <li>
         <NormalLink href="https://www.linkedin.com/in/enriqueortizpi/">
-          <LinkedInImg />
+          <LinkedInSVG />
         </NormalLink>
       </li>
       <li>
         <NormalLink href="https://twitter.com/hievalir">
-          <TwitterImg />
+          <TwitterSVG />
         </NormalLink>
       </li>
     </ul>
