@@ -52,7 +52,11 @@ const OpenSource = () => (
             <AlgopitImg />
           </div>
           <div className="project-description">
-            <NormalLink href="/" width="auto" height="auto">
+            <NormalLink
+              href="https://algopit.netlify.com/"
+              width="auto"
+              height="auto"
+            >
               <h3>Algopit</h3>
             </NormalLink>
             <h4>
