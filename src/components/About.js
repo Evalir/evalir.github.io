@@ -1,9 +1,44 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { MugshotImg } from '../components/MugshotImg'
+import MiniRectangle from '../images/minirectangle.inline.svg'
+import HexagonGrey from '../images/hexagong.inline.svg'
+import ReverseTriangle from '../images/reverse.triangle.inline.svg'
 import Tag from './Tag'
 
+const float = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(15%);
+  }
+`
+
+const Placer = styled.div`
+  position: absolute;
+  display: block;
+  animation: ${float} ${props => props.animationDuration || '4s'} ease-in-out
+    infinite;
+  top: ${props => props.top || '0'};
+  left: ${props => props.left || '0'};
+  @media screen and (max-width: 1023px) {
+    top: ${props => props.tabletTop || props.top};
+    left: ${props => props.tabletLeft || props.left};
+  }
+
+  @media screen and (max-width: 500px) {
+    display: ${props => (props.hiddenMobile ? 'none' : 'block')};
+  }
+
+  @media screen and (max-width: 320px) {
+    display: none;
+  }
+`
+
 const StyledAbout = styled.div`
+  position: relative;
   min-height: calc(70vh);
   margin: 0 auto;
   display: grid;
@@ -63,6 +98,23 @@ const AboutMe = () => (
         ))}
       </div>
     </div>
+    <>
+      <Placer
+        top="75%"
+        left="55%"
+        tabletTop="85%"
+        tabletLeft="45%"
+        hiddenMobile
+      >
+        <MiniRectangle />
+      </Placer>
+      <Placer top="75%" left="28%" hiddenMobile>
+        <HexagonGrey />
+      </Placer>
+      <Placer top="65%" left="75%" hiddenMobile>
+        <ReverseTriangle />
+      </Placer>
+    </>
   </StyledAbout>
 )
 
