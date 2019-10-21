@@ -6,7 +6,11 @@ import NormalLink from './NormalLink'
 
 const StyledOpenSource = styled.div`
   margin: 0 auto;
+  position: relative;
+  z-index: 101;
   .projects {
+    position: relative;
+    z-index: 101;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: ${props => props.theme.unit.getRem(16)};

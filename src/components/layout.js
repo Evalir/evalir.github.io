@@ -61,11 +61,13 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: normal;
   }
   html {
+    overflow-x: hidden;
     color: #ffffff;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
   }
   body {
+    overflow-x: hidden;
     background: #141821;
     color: #FFFFFF;
     margin: 0;
@@ -73,6 +75,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: CircularStd;
     letter-spacing: normal;
     -webkit-font-smoothing: antialiased;
+  }
+  svg {
+    display: block;
   }
   .container {
     max-width: 960px;
@@ -85,7 +90,9 @@ const GlobalStyle = createGlobalStyle`
 
 const Wrapper = styled.div`
   margin: 0 auto;
+  width: 90%;
   max-width: 1200px;
+  overflow-x: hidden;
   h1 {
     font-size: ${props => props.theme.unit.getRem(48)};
   }
