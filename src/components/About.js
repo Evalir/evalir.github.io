@@ -71,9 +71,10 @@ const StyledAbout = styled.div`
 const skills = [
   'Javascript',
   'Typescript',
+  'Python',
   'Node',
   'GraphQL',
-  'Apollo Server',
+  'Apollo',
   'React',
   'Webpack',
   'D3.js',
@@ -81,6 +82,7 @@ const skills = [
   'Prisma',
   'Firebase',
   'Docker',
+  'Remote Working',
 ]
 
 const AboutMe = () => (
