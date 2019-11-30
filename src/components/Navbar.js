@@ -26,6 +26,29 @@ const StyledLink = styled(Link)`
   }
 `
 
+const StyledALink = styled.a`
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: white;
+  ::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: white;
+    top: 100%;
+    left: 0;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.35s ease-in-out;
+  }
+  :hover::after {
+    transform: translateY(50%);
+    opacity: 1;
+  }
+`
+
 const StyledNavbar = styled.div`
   display: flex;
   flex-direction: column;
@@ -55,7 +78,7 @@ const Navbar = () => (
         <StyledLink to="/">Home</StyledLink>
       </li>
       <li>
-        <StyledLink to="/">Blog</StyledLink>
+        <StyledALink href="https://evalir.xyz/" target="_blank">Blog</StyledALink>
       </li>
       <li>
         <NormalLink href="mailto:hi@enriqueortiz.dev">Contact</NormalLink>
