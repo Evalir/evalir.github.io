@@ -78,7 +78,7 @@ const Navbar = () => (
         <StyledLink to="/">Home</StyledLink>
       </li>
       <li>
-        <StyledALink href="https://evalir.xyz/" target="_blank">Blog</StyledALink>
+        <StyledALink href="https://evalir.xyz/">Blog</StyledALink>
       </li>
       <li>
         <NormalLink href="mailto:hi@enriqueortiz.dev">Contact</NormalLink>
