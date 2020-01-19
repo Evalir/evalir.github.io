@@ -117,7 +117,7 @@ const Hero = () => (
         </NormalLink>
       </li>
       <li>
-        <NormalLink href="https://twitter.com/hievalir">
+        <NormalLink href="https://twitter.com/cryptoyizus">
           <TwitterSVG />
         </NormalLink>
       </li>
