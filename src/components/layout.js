@@ -11,9 +11,10 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import './layout.css'
-import CircularStdBold from '../fonts/CircularStd-Bold.woff'
-import CircularStdMedium from '../fonts/CircularStd-Medium.woff'
-import CircularStdBook from '../fonts/CircularStd-Book.woff'
+import HKGroteskBold from '../fonts/HKGroteskBold.woff'
+import HKGroteskSemiBold from '../fonts/HKGroteskSemiBold.woff'
+import HKGroteskExtraBold from '../fonts/HKGroteskExtraBold.woff'
+import HKGrotestRegular from '../fonts/HKGroteskRegular.woff'
 
 const theme = {
   colors: {
@@ -37,24 +38,32 @@ const theme = {
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: 'CircularStd';
-    src: url(${CircularStdBold}) format('woff');
+    font-family: 'HK Grotesk';
+    src: url(${HKGroteskExtraBold}) format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+  }
+  @font-face {
+    font-family: 'HK Grotesk';
+    src: url(${HKGroteskBold}) format('woff');
     font-weight: 600;
     font-style: normal;
     font-stretch: normal;
     letter-spacing: normal;
   }
   @font-face {
-    font-family: 'CircularStd';
-    src: url(${CircularStdMedium}) format('woff');
+    font-family: 'HK Grotesk';
+    src: url(${HKGroteskSemiBold}) format('woff');
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
     letter-spacing: normal;
   }
   @font-face {
-    font-family: 'CircularStd';
-    src: url(${CircularStdBook}) format('woff');
+    font-family: 'HK Grotesk';
+    src: url(${HKGrotestRegular}) format('woff');
     font-weight: 400;
     font-style: normal;
     font-stretch: normal;
@@ -72,7 +81,7 @@ const GlobalStyle = createGlobalStyle`
     color: #FFFFFF;
     margin: 0;
     padding: 0;
-    font-family: CircularStd;
+    font-family: 'HK Grotesk';
     letter-spacing: normal;
     -webkit-font-smoothing: antialiased;
   }
@@ -80,7 +89,7 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
   .container {
-    max-width: 960px;
+    max-width: 1200px;
     margin: 0 auto;
   }
   .overflow {
@@ -89,12 +98,9 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Wrapper = styled.div`
-  margin: 0 auto;
-  width: 90%;
-  max-width: 1200px;
   overflow-x: hidden;
   h1 {
-    font-size: ${props => props.theme.unit.getRem(48)};
+    font-size: ${props => props.theme.unit.getRem(86)};
   }
   h2 {
     font-size: ${props => props.theme.unit.getRem(42)};
@@ -107,11 +113,8 @@ const Wrapper = styled.div`
   h4 {
     font-size: ${props => props.theme.unit.getRem(32)};
   }
-
-  @media screen and (max-width: 728px) {
-    padding: 16px;
-  }
 `
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {

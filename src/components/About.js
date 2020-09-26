@@ -1,10 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { MugshotImg } from '../components/MugshotImg'
-import MiniRectangle from '../images/minirectangle.inline.svg'
-import HexagonGrey from '../images/hexagong.inline.svg'
-import ReverseTriangle from '../images/reverse.triangle.inline.svg'
-import Tag from './Tag'
+import LightPlanet from '../images/planetlight.svg'
 
 const float = keyframes`
   0%, 100% {
@@ -12,15 +8,15 @@ const float = keyframes`
   }
 
   50% {
-    transform: translateY(15%);
+    transform: translateY(5%);
   }
 `
 
 const Placer = styled.div`
   position: absolute;
   display: block;
-  animation: ${float} ${props => props.animationDuration || '4s'} ease-in-out
-    infinite;
+  animation: ${props => (props.animate ? float : null)}
+    ${props => props.animationDuration || '4s'} ease-in-out infinite;
   top: ${props => props.top || '0'};
   left: ${props => props.left || '0'};
   @media screen and (max-width: 1023px) {
@@ -39,86 +35,67 @@ const Placer = styled.div`
 
 const StyledAbout = styled.div`
   position: relative;
-  min-height: calc(70vh);
-  margin: 0 auto;
-  display: grid;
-  color: white;
-  grid-template-columns: 1fr;
-  grid-gap: ${props => props.theme.unit.getRem(16)};
-  margin-bottom: ${props => props.theme.unit.getRem(24)};
-  .mugshot {
-    display: none;
-  }
-
-  .about-me {
-    grid-column: 1 / span 1;
-    position: relative;
+  min-height: 100vh;
+  background: #ffaeaf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div {
     z-index: 101;
   }
-
-  @media screen and (min-width: 728px) {
-    grid-template-columns: 30% 1fr;
-    .mugshot {
-      display: block;
-      grid-column: 1 / span 1;
-    }
-    .about-me {
-      grid-column: 2 / span 1;
+  p {
+    font-size: ${props => props.theme.unit.getRem(48)};
+    font-weight: 500;
+    line-height: 60px;
+    color: black;
+  }
+  @media screen and (max-width: 768px) {
+    p {
+      font-size: ${props => props.theme.unit.getRem(32)};
+      line-height: ${props => props.theme.unit.getRem(36)};
     }
   }
 `
 
-const skills = [
-  'Javascript',
-  'Typescript',
-  'Python',
-  'Node',
-  'GraphQL',
-  'Apollo',
-  'React',
-  'Webpack',
-  'D3.js',
-  'SQL',
-  'Prisma',
-  'Firebase',
-  'Docker',
-  'Remote Working',
-]
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 32px 64px;
+  display: grid;
+  grid-template-columns: 75% 1fr;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+`
 
 const AboutMe = () => (
   <StyledAbout>
-    <div className="mugshot">
-      <MugshotImg />
-    </div>
-    <div className="about-me">
-      <h4>
-        I’m a data-driven Software Engineer that has a passion for products,
-        solving real-world problems through software, and music.
-      </h4>
-      <div>
-        <h3>Skills</h3>
-        {skills.map((skill, index) => (
-          <Tag key={index}>{skill}</Tag>
-        ))}
-      </div>
-    </div>
-    <>
+    <Container>
       <Placer
-        top="75%"
-        left="55%"
-        tabletTop="85%"
-        tabletLeft="45%"
+        animate
+        top="25%"
+        left="75%"
+        tabletLeft="65%"
         hiddenMobile
+        animationDuration="3s"
       >
-        <MiniRectangle />
+        <img src={LightPlanet} />
       </Placer>
-      <Placer top="67%" left="5%" hiddenMobile>
-        <HexagonGrey />
-      </Placer>
-      <Placer top="65%" left="75%" hiddenMobile>
-        <ReverseTriangle />
-      </Placer>
-    </>
+      <div>
+        <p>
+          I’m currently working at Aragon One, experimenting with governance at
+          the speed of software through decentralized technology.
+        </p>{' '}
+        <p>
+          My work involves rapid experimentation and prototyping, from UI
+          Engineering, rapidly building prototypes to validate product
+          assumptions and interacting with Blockchain networks—mainly Ethereum.
+        </p>
+      </div>
+    </Container>
   </StyledAbout>
 )
 
